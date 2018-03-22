@@ -29,3 +29,4 @@ RegisterDriver(compatibility_strings "arm,pl011" PREFIX src/drivers/serial CFILE
 RegisterDriver(compatibility_strings "samsung,exynos4210-uart" PREFIX src/drivers/serial CFILES "exynos4210-uart.c")
 RegisterDriver(compatibility_strings "qcom,msm-uartdm" PREFIX src/drivers/serial CFILES "msm-uartdm.c")
 RegisterDriver(compatibility_strings "xlnx,xuartps" PREFIX src/drivers/serial CFILES "xuartps.c")
+RegisterDriver(compatibility_strings "fsl,imx8qm-lpuart" CFILES src/drivers/serial/imx8-lpuart.c)
