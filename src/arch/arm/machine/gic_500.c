@@ -219,7 +219,7 @@ gicr_locate_interface(void)
 
 
 BOOT_CODE static void
-cpu_iface_init(void)
+gicr_init(void)
 {
     int i;
     uint32_t priority;
@@ -248,6 +248,11 @@ cpu_iface_init(void)
     gic_rdist_sgi_ppi_map[CURRENT_CPU_INDEX()]->icfgrn_rw = 0xaaaaaaaa;
 
     gicv3_redist_wait_for_rwp();
+}
+
+BOOT_CODE static void
+cpu_iface_init(void)
+{
 
     /* Enable system registers */
     gicv3_enable_sre();
@@ -281,6 +286,7 @@ BOOT_CODE void cpu_initLocalIRQController(void)
 
     mpidr_map[CURRENT_CPU_INDEX()] = mpidr;
 
+    gicr_init();
     cpu_iface_init();
 }
 
